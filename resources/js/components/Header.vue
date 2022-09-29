@@ -9,7 +9,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <router-link to="/contacts" class="nav-link">Contacts</router-link>
+                        <router-link to="/about" class="nav-link">About</router-link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/admin">Back-office</a>

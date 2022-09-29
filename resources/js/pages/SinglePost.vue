@@ -1,12 +1,10 @@
 <template>
-    <div class="card col-5 m-5">
-        <img :src="isValidUrl(post.image) ? post.image : 'storage/' + post.image" class="card-img-top mt-3" alt="image-post">
+    <main class="container text-center">
+        <img :src="isValidUrl(post.image) ? post.image : 'http://127.0.0.1:8000/storage/' + post.image" class="card-img-top mt-3 w-50" alt="image-post">
         
         <div class="card-body">
             <h5 class="card-title m-3 font-weight-bold">
-                <router-link :to="'posts/' + post.id">
                     {{ post.title }}
-                </router-link>
             </h5>
             <h6 class="card-subtitle m-3">
                 Written by {{ post.user.name }} | {{ post.date }}
@@ -23,15 +21,41 @@
                 </span>
             </div>
         </div>
-
-    </div>
+    </main>
 </template>
 
 <script>
-export default {
-    props: ['post'],
+import PostCard from '../components/PostCard.vue';
+import axios from 'axios';
 
-    methods : {
+export default {
+    components: {
+        PostCard,
+
+    },
+
+    data() {
+        return {
+            post: {
+                user: {},
+                category: {
+                    color: ''
+                },
+            },
+        }
+    },
+
+    methods: {
+        getPosts() {
+            const id = this.$route.params.id;
+            axios.get(`/api/posts/${id}`)
+                .then(response => {
+                    this.post = response.data.results.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
         isValidUrl(string) {
             const regex = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
             if(!regex .test(string)) {
@@ -40,7 +64,13 @@ export default {
                 return true;
             }
         }
+    },
+
+    created() {
+        this.getPosts();
     }
+
+
 }
 </script>
 

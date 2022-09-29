@@ -29,7 +29,7 @@ export default {
             axios.get('/api/posts')
                 .then(response => {
                     this.posts = response.data.results.data;
-                    console.log(this.posts);
+                    /* console.log(this.posts); */
                 })
                 .catch(error => {
                     console.log(error);

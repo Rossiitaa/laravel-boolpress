@@ -55,7 +55,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::with('user')->find($id);
+        $post = Post::with('user', 'category.posts', 'tags')->findOrFail($id);
         
         if ($post)
             return response()->json([

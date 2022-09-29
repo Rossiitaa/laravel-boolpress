@@ -2387,7 +2387,11 @@ var staticRenderFns = [function () {
     staticClass: "card-title"
   }, [_vm._v("Name: Rosario Scuotto")]), _vm._v(" "), _c("h6", {
     staticClass: "card-subtitle mb-2 text-muted"
-  }, [_vm._v("GitHub: https://github.com/Rossiitaa")]), _vm._v(" "), _c("p", {
+  }, [_c("a", {
+    attrs: {
+      href: "https://github.com/Rossiitaa"
+    }
+  }, [_vm._v("Click here for my GitHub profile")])]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
   }, [_vm._v("Message:\n                        "), _c("br"), _vm._v("\n                        Hi, I'm Rosario Scuotto, I'm a student at the University Pegaso, I'm 24 years old and I'm studying Business Economics.\n                        "), _c("br"), _vm._v(" "), _c("br"), _vm._v("\n                        I'm a passionate programmer, I love to learn new things and I'm always looking for new challenges. \n                        "), _c("br"), _vm._v(" "), _c("br"), _vm._v('\n                        I\'m currently working on a project called "Laravel Boolpress".\n                        '), _c("br"), _vm._v(" "), _c("br"), _vm._v("\n                        I am almost at the end of a Full Stack Web Developer course, thanks to Boolean I have learned many good and bad things.\n                        "), _c("br"), _vm._v(" "), _c("br"), _vm._v("\n                        I am a person who gets thrown down very quickly, we hope this path makes me happy.\n                    ")])])])])])]);
 }];

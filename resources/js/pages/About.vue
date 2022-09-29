@@ -6,7 +6,7 @@
                 <div class="card m-2">
                     <div class="card-body">
                         <h5 class="card-title">Name: Rosario Scuotto</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">GitHub: https://github.com/Rossiitaa</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><a href="https://github.com/Rossiitaa">Click here for my GitHub profile</a></h6>
                         <p class="card-text">Message:
                             <br>
                             Hi, I'm Rosario Scuotto, I'm a student at the University Pegaso, I'm 24 years old and I'm studying Business Economics.

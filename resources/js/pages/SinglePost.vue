@@ -1,37 +1,40 @@
 <template>
-    <main class="container text-center">
-        <img :src="isValidUrl(post.image) ? post.image : 'http://127.0.0.1:8000/storage/' + post.image" class="card-img-top mt-3 w-50" alt="image-post">
-        
-        <div class="card-body">
-            <h5 class="card-title m-3 font-weight-bold">
-                    {{ post.title }}
-            </h5>
-            <h6 class="card-subtitle m-3">
-                Written by {{ post.user.name }} | {{ post.date }}
-            </h6>
-            <p class="card-text m-3">
-                {{ post.content }}
-            </p>
-            <div class=" badge badge-fill m-3" :style=" 'background-color: ' + post.category.color ">
-                <h5 class="m-0"> {{ post.category.name }} </h5>
-            </div>
-            <div class="m-3">
-                <span v-for="tag in post.tags" :key="tag.id">
-                    #{{ tag.name }}
-                </span>
+    <main>
+        <LoaderComponent v-if="isLoading"/>
+        <div v-else class="container text-center">
+            <div class="card-body">
+                <img :src="isValidUrl(post.image) ? post.image : 'http://127.0.0.1:8000/storage/' + post.image" class="card-img-top mt-3 w-50" alt="image-post">
+                <h5 class="card-title m-3 font-weight-bold">
+                    <router-link :to="'/'">
+                        {{ post.title }}
+                    </router-link>
+                </h5>
+                <h6 class="card-subtitle m-3">
+                    Written by {{ post.user.name }} | {{ post.date }}
+                </h6>
+                <p class="card-text m-3">
+                    {{ post.content }}
+                </p>
+                <div class=" badge badge-fill m-3" :style=" 'background-color: ' + post.category.color ">
+                    <h5 class="m-0"> {{ post.category.name }} </h5>
+                </div>
+                <div class="m-3">
+                    <span v-for="tag in post.tags" :key="tag.id">
+                        #{{ tag.name }}
+                    </span>
+                </div>
             </div>
         </div>
     </main>
 </template>
 
 <script>
-import PostCard from '../components/PostCard.vue';
+import LoaderComponent from '../components/LoaderComponent.vue';
 import axios from 'axios';
 
 export default {
     components: {
-        PostCard,
-
+        LoaderComponent,
     },
 
     data() {
@@ -42,6 +45,7 @@ export default {
                     color: ''
                 },
             },
+            isLoading: true,
         }
     },
 
@@ -51,6 +55,7 @@ export default {
             axios.get(`/api/posts/${id}`)
                 .then(response => {
                     this.post = response.data.results.data;
+                    this.isLoading = false;
                 })
                 .catch(error => {
                     console.log(error);
@@ -74,6 +79,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
 
 </style>

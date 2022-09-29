@@ -1,8 +1,7 @@
 <template>
-    <div class="card col-5 m-5">
-        <img :src="isValidUrl(post.image) ? post.image : 'storage/' + post.image" class="card-img-top mt-3" alt="image-post">
-        
+    <div class="card col-5 m-5">       
         <div class="card-body">
+        <img :src="isValidUrl(post.image) ? post.image : 'storage/' + post.image" class="card-img-top mt-3" alt="image-post">
             <h5 class="card-title m-3 font-weight-bold">
                 <router-link :to="'posts/' + post.id">
                     {{ post.title }}
@@ -23,7 +22,6 @@
                 </span>
             </div>
         </div>
-
     </div>
 </template>
 

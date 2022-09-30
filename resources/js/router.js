@@ -6,6 +6,9 @@ Vue.use(VueRouter);
 import Home from './pages/Home.vue';
 import About from './pages/About.vue';
 import SinglePost from './pages/SinglePost.vue';
+import SingleTag from './pages/SingleTag.vue';
+import TagsPage from './pages/TagsPage.vue';
+import PageNotFount from './pages/errors/PageNotFound.vue';
 
 const router = new VueRouter({
     mode: 'history',
@@ -25,6 +28,21 @@ const router = new VueRouter({
             name: 'singlePost',
             component: SinglePost
         },
+        {
+            path: '/tags',
+            name: 'tags',
+            component: TagsPage
+        },
+        {
+            path: '/tags/:id',
+            name: 'singleTag',
+            component: SingleTag
+        },
+        {
+            path: '*',
+            name: 'pageNotFound',
+            component: PageNotFount
+        }
     ]
 });
 

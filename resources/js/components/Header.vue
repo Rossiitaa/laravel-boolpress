@@ -12,6 +12,9 @@
                         <router-link to="/about" class="nav-link">About</router-link>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/tags">Tags Page</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/admin">Back-office</a>
                     </li>
                 </ul>

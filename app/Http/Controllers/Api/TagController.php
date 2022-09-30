@@ -55,7 +55,7 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        $tag = tag::with('user')->find($id);
+        $tag = tag::with('posts.user')->find($id);
         
         if ($tag)
             return response()->json([
